@@ -19,12 +19,10 @@ class LoginPage extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const LoginForm(),
-                const SizedBox(height: 8.0),
-                GestureDetector(
-                    onTap: () => navigateTo(context, const RegistrationPage()),
-                    child: const Text('Do not have an account? Sign up'))
+              children: const [
+                _LoginForm(),
+                SizedBox(height: 8.0),
+                _SignUpButton()
               ],
             ),
           ),
@@ -32,8 +30,21 @@ class LoginPage extends StatelessWidget {
       );
 }
 
-class LoginForm extends StatelessWidget {
-  const LoginForm({super.key});
+class _SignUpButton extends StatelessWidget {
+  const _SignUpButton();
+
+  @override
+  Widget build(BuildContext context) => GestureDetector(
+        onTap: () => navigateTo(
+          context,
+          const RegistrationPage(),
+        ),
+        child: const Text('Do not have an account? Sign up'),
+      );
+}
+
+class _LoginForm extends StatelessWidget {
+  const _LoginForm();
 
   @override
   Widget build(BuildContext context) => BlocListener<LoginBloc, LoginState>(
@@ -101,6 +112,7 @@ class _PasswordInputField extends StatelessWidget {
 
 class _SignInButton extends StatelessWidget {
   const _SignInButton();
+
   @override
   Widget build(BuildContext context) => BlocBuilder<LoginBloc, LoginState>(
         builder: (context, state) => ElevatedButton(
