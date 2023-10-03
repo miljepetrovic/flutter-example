@@ -11,3 +11,5 @@ class AuthOnCurrentUserChanged extends AuthEvent {
 }
 
 class AuthLogoutButtonPressed extends AuthEvent {}
+
+class AuthDeleteAccountButtonPressed extends AuthEvent {}

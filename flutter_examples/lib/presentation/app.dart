@@ -14,19 +14,16 @@ class FlutterExampleApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) => MaterialApp(
       title: 'Flutter example',
-      home: BlocProvider(
-        create: (_) => getIt<AuthBloc>()..add(AuthInitialCheckRequested()),
-        child: BlocConsumer<AuthBloc, AuthState>(
-          listener: (context, state) {
-            if (state is AuthUserUnauthenticated) {
-              navigateTo(context, const LoginPage());
-            }
+      home: BlocConsumer<AuthBloc, AuthState>(
+        listener: (context, state) {
+          if (state is AuthUserUnauthenticated) {
+            navigateAndReplace(context, const LoginPage());
+          }
 
-            if (state is AuthUserAuthenticated) {
-              navigateTo(context, const HomePage());
-            }
-          },
-          builder: (context, state) => const SplashScreen(),
-        ),
+          if (state is AuthUserAuthenticated) {
+            navigateAndReplace(context, const HomePage());
+          }
+        },
+        builder: (context, state) => const SplashScreen(),
       ));
 }

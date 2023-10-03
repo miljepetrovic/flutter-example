@@ -11,3 +11,5 @@ class AuthUserAuthenticated extends AuthState {
 }
 
 class AuthUserUnauthenticated extends AuthState {}
+
+class AuthAccountDeletionSuccess extends AuthState {}

@@ -66,7 +66,7 @@ class _LoginForm extends StatelessWidget {
             SizedBox(height: 8.0),
             _PasswordInputField(),
             SizedBox(height: 8.0),
-            _SignInButton()
+            _LogInButton()
           ],
         ),
       );
@@ -110,8 +110,8 @@ class _PasswordInputField extends StatelessWidget {
       );
 }
 
-class _SignInButton extends StatelessWidget {
-  const _SignInButton();
+class _LogInButton extends StatelessWidget {
+  const _LogInButton();
 
   @override
   Widget build(BuildContext context) => BlocBuilder<LoginBloc, LoginState>(

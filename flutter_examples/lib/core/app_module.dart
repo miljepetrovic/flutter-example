@@ -3,6 +3,6 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 
 @module
 abstract class AppModule {
-  @singleton
   GoTrueClient get supabaseAuth => Supabase.instance.client.auth;
+  FunctionsClient get functionsClient => Supabase.instance.client.functions;
 }

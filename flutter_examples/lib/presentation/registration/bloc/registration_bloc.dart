@@ -36,9 +36,8 @@ class RegistrationBloc extends Bloc<RegistrationEvent, RegistrationState> {
       state.confirmPassword.value,
     )) {
       emit(state.copyWith(
-        formSubmissionStatus:
-            FormSubmissionStatus.confirmPasswordNotMatchWithPassword,
-      ));
+          formSubmissionStatus:
+              FormSubmissionStatus.confirmPasswordNotMatchWithPassword));
 
       return;
     }
